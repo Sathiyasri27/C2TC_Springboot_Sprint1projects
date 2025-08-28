@@ -1,6 +1,5 @@
 package com.tnsif.user.entity;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -23,13 +22,29 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    // ✅ New Variables
+    @Column(name = "phone_number", unique = true)
+    private String phoneNumber;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "role")
+    private String role;
+
+    // Default Constructor
     public User() {}
 
-    public User(int userId, String fullName, String email, String password) {
+    // Constructor with all fields
+    public User(int userId, String fullName, String email, String password,
+                String phoneNumber, String address, String role) {
         this.userId = userId;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.role = role;
     }
 
     // Getters and Setters
@@ -63,5 +78,29 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

@@ -1,13 +1,11 @@
 package com.tnsif.user.controller;
 
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.tnsif.user.entity.User;
 import com.tnsif.user.service.Userservice;
-
 
 @RestController
 @RequestMapping("/users")
@@ -28,7 +26,7 @@ public class Usercontroller {
         return userService.getUserById(id).orElse(null);
     }
 
-    // Create a new user (REST standard: no ID in path)
+    // Create a new user
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userService.addUser(user);
