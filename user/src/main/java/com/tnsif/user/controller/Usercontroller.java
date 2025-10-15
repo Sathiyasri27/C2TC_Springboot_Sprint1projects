@@ -20,11 +20,11 @@ public class Usercontroller {
         return userService.getAllUsers();
     }
 
-    // Get user by ID
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable int id) {
+    public User getUserById(@PathVariable("id") int id) {
         return userService.getUserById(id).orElse(null);
     }
+
 
     // Create a new user
     @PostMapping
@@ -32,15 +32,15 @@ public class Usercontroller {
         return userService.addUser(user);
     }
 
-    // Update user by ID
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable int id, @RequestBody User user) {
+    public User updateUser(@PathVariable("id") int id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
-    // Delete user by ID
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable int id) {
+    public void deleteUser(@PathVariable("id") int id) {
         userService.deleteUser(id);
     }
+
+
 }
